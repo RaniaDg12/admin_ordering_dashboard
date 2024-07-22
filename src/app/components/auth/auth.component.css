@@ -1,0 +1,208 @@
+body {
+    background-color: #A8A8A8;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .container {
+    width: 1000px;
+    height: 650px;
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+  }
+  
+  .backbox .loginMsg{
+    /* Add some CSS properties here */
+    background-color:  #9fdeaf;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    display: flex;
+  }
+  
+  .backbox .signupMsg{
+    /* Add some CSS properties here */
+    background-color: #96dbe2;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: absolute;
+    transform: translate(0, -50%);
+    top: 50%;
+    display: flex;
+  }
+  
+  .frontbox {
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+    width: 50%;
+    z-index: 10;
+    position: absolute;
+    right: 0;
+    margin-right: 0%;
+    margin-left: 3%;
+    transition: right 0.8s ease-in-out;
+    display: flex; /* Use flex for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .moving {
+    right: 45%;
+  }
+  
+  .loginMsg, .signupMsg {
+    width: 50%;
+    height: 100%;
+    font-size: 15px;
+    box-sizing: border-box;
+    
+  }
+  
+  .loginMsg .title,
+  .signupMsg .title {
+    font-weight: 300;
+    font-size: 32px;
+  }
+  
+  .loginMsg p,
+  .signupMsg p {
+    font-weight: 100;
+  }
+  
+  .textcontent {
+    color: white;
+    margin-top: 20%;
+    margin-left: 8%;
+  }
+  
+  .loginMsg button{
+    background-color:#9fdeaf;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    box-sizing: content-box;
+    font-weight: 300;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 38%;
+  
+  }
+  .signupMsg button {
+    background-color:#96dbe2;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+    box-sizing: content-box;
+    font-weight: 300;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 38%;
+  }
+  
+  /* front box content */
+  .login, .signup {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .login h2{
+    color:#9fdeaf;
+    font-size: 22px;
+  
+  }
+  .signup h2 {
+    color: #96dbe2;
+    font-size: 22px;
+  }
+  
+  .inputbox {
+    margin-top: 30px;
+  }
+  .inputbox .text {
+    border-radius: 10px;  
+    overflow: hidden; 
+  }
+  
+  .login input, 
+  .signup input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: #f2f2f2;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+  
+  .login button{
+    background-color: #9fdeaf;
+    border: none;
+    color: white;
+    font-size: 14px;  
+    font-weight: 500;  
+    box-sizing: content-box;
+    padding: 15px 30px;  
+    border-radius: 10px;
+    width: 200px; 
+    margin-top: 40px; 
+    cursor: pointer;
+    position: static; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  
+  }
+  .signup button {
+    background-color: #96dbe2;
+    border: none;
+    color: white;
+    font-size: 14px;  
+    font-weight: 500;  
+    box-sizing: content-box;
+    padding: 15px 30px;  
+    border-radius: 10px;
+    width: 200px; 
+    margin-top: 40px; 
+    cursor: pointer;
+    position: static; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Fade In & Out */
+  .login p {
+    cursor: pointer;
+    color: #404040;
+    font-size: 15px;
+  }
+  
+  .loginMsg, .signupMsg {
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+  .visibility {
+    visibility: visible;
+    transition: visibility 0.3s;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .moving {
+    transform: translateX(100%);
+    transition: transform 0.5s;
+  }
+  
+  

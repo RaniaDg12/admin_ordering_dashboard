@@ -1,0 +1,45 @@
+<body>
+    <div class="container">
+      <div class="backbox">
+        <div class="loginMsg" *ngIf="!isSignUpMode">
+          <div class="textcontent">
+            <p class="title">Don't have an account?</p>
+            <p>Sign up to save all your graph.</p>
+            <button (click)="switchMode()">Sign Up</button>
+          </div>
+        </div>
+        <div class="signupMsg" *ngIf="isSignUpMode">
+          <div class="textcontent">
+            <p class="title">Have an account?</p>
+            <p>Log in to see all your collection.</p>
+            <button (click)="switchMode()">LOG IN</button>
+          </div>
+        </div>
+      </div>
+      <!-- backbox -->
+  
+      <div class="frontbox">
+        <div class="login" *ngIf="!isSignUpMode">
+          <h2>LOG IN</h2>
+          <div class="inputbox">
+            <input class="text" type="text" name="email" placeholder="  EMAIL">
+            <input class="text" type="password" name="password" placeholder="  PASSWORD">
+          </div>
+          <p>FORGET PASSWORD?</p>
+          <button>LOG IN</button>
+        </div>
+  
+        <div class="signup" *ngIf="isSignUpMode">
+          <h2>SIGN UP</h2>
+          <div class="inputbox">
+            <input class="text" type="text" name="fullname" placeholder="  FULLNAME">
+            <input class="text" type="text" name="email" placeholder="  EMAIL">
+            <input class="text" type="password" name="password" placeholder="  PASSWORD">
+          </div>
+          <button>SIGN UP</button>
+        </div>
+      </div>
+      <!-- frontbox -->
+    </div>
+  </body>
+  
