@@ -1,45 +1,57 @@
 <body>
-    <div class="container">
-      <div class="backbox">
-        <div class="loginMsg" *ngIf="!isSignUpMode">
-          <div class="textcontent">
-            <p class="title">Don't have an account?</p>
-            <p>Sign up to save all your graph.</p>
-            <button (click)="switchMode()">Sign Up</button>
+  <div class="container">
+    <div class="backbox">
+      <div class="loginMsg" *ngIf="!isSignUpMode">
+        <div class="textcontent">
+          <div class="top-content">
+            <p class="title">Bienvenue !</p>
+            <p>Votre siteweb conçue pour une gestion optimisée 
+              <br> et efficace de vos commandes.</p>
           </div>
-        </div>
-        <div class="signupMsg" *ngIf="isSignUpMode">
-          <div class="textcontent">
-            <p class="title">Have an account?</p>
-            <p>Log in to see all your collection.</p>
-            <button (click)="switchMode()">LOG IN</button>
+          <div class="flex-container">
+            <p>Vous n'avez pas de compte?</p>
+            <button (click)="switchMode()">S'inscrire</button>
           </div>
         </div>
       </div>
-      <!-- backbox -->
-  
-      <div class="frontbox">
-        <div class="login" *ngIf="!isSignUpMode">
-          <h2>LOG IN</h2>
-          <div class="inputbox">
-            <input class="text" type="text" name="email" placeholder="  EMAIL">
-            <input class="text" type="password" name="password" placeholder="  PASSWORD">
+      <div class="signupMsg" *ngIf="isSignUpMode">
+        <div class="textcontent">
+          <div class="top-content">
+            <p class="title">Créez votre compte</p>
+            <p>Rejoignez-nous aujourd'hui pour une expérience 
+              <br> améliorée et simplifiée.</p>
           </div>
-          <p>FORGET PASSWORD?</p>
-          <button>LOG IN</button>
-        </div>
-  
-        <div class="signup" *ngIf="isSignUpMode">
-          <h2>SIGN UP</h2>
-          <div class="inputbox">
-            <input class="text" type="text" name="fullname" placeholder="  FULLNAME">
-            <input class="text" type="text" name="email" placeholder="  EMAIL">
-            <input class="text" type="password" name="password" placeholder="  PASSWORD">
+          <div class="flex-container">
+            <p>Vous avez déjà un compte?</p>
+            <button (click)="switchMode()">Connexion</button>
           </div>
-          <button>SIGN UP</button>
         </div>
       </div>
-      <!-- frontbox -->
     </div>
-  </body>
-  
+    <!-- backbox -->
+
+    <div class="frontbox">
+      <img src="assets/logo.png" alt="Logo AGRIMED" class="agrimed-logo">
+      <div class="login" *ngIf="!isSignUpMode">
+        <h2>Connexion</h2>
+        <div class="inputbox">
+          <input class="text" type="text" name="email" placeholder="  EMAIL" id="email" [(ngModel)]="loginobject.email" required>
+          <input class="text" type="password" name="password" placeholder="  MOT DE PASSE" id="password" [(ngModel)]="loginobject.password" required>
+        </div>
+        <p>Mot de passe oublié?</p>
+        <button type="button" (click)="login()">Connexion</button>
+      </div>
+
+      <div class="signup" *ngIf="isSignUpMode">
+        <h2>Inscription</h2>
+        <div class="inputbox">
+          <input class="text" type="text" name="name" placeholder="  NOM COMPLET" id="name" [(ngModel)]="signupobject.name" required>
+          <input class="text" type="text" name="email" placeholder="  EMAIL" id="email" [(ngModel)]="signupobject.email" required>
+          <input class="text" type="password" name="password" placeholder="  MOT DE PASSE" id="password" [(ngModel)]="signupobject.password" required>
+        </div>
+        <button type="button" (click)="signup()">S'inscrire</button>
+      </div>
+    </div>
+    <!-- frontbox -->
+  </div>
+</body>
