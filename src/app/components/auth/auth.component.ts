@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -39,12 +39,12 @@ export class AuthComponent {
       (response: any) => {
         console.log('Login successful:', response);
         // Debugging statement
-        console.log('Attempting to navigate to /navbar');
-        this.router.navigate(['/navbar']).then(success => {
+        console.log('Attempting to navigate to /home');
+        this.router.navigate(['/home']).then(success => {
           if (success) {
-            console.log('Navigation to /navbar successful');
+            console.log('Navigation to /home successful');
           } else {
-            console.error('Navigation to /navbar failed');
+            console.error('Navigation to /home failed');
           }
         });
       },
@@ -60,12 +60,12 @@ export class AuthComponent {
       (response: any) => {
         console.log('Signup successful:', response);
         // Debugging statement
-        console.log('Attempting to navigate to /navbar');
-        this.router.navigate(['/navbar']).then(success => {
+        console.log('Attempting to navigate to /home');
+        this.router.navigate(['/home']).then(success => {
           if (success) {
-            console.log('Navigation to /navbar successful');
+            console.log('Navigation to /home successful');
           } else {
-            console.error('Navigation to /navbar failed');
+            console.error('Navigation to /home failed');
           }
         });
       },

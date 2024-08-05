@@ -1,0 +1,103 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+    <app-sidebar class="col-auto" [class.sidebar-collapsed]="isSidebarClosed" (toggle)="handleSidebarToggle($event)"></app-sidebar>
+    <main class="col" [class.main-expanded]="isSidebarClosed">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Gestion des  Sites</h1>
+        <button class="btn btn-primary" (click)="openSettingsModal()">
+          <i class="bi bi-plus"></i> Ajouter Site
+        </button>
+      </div>
+      <div class="col-md-12">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Numéro</th>
+                    <th>Code Site</th>
+                    <th>Nom Site</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let site of sites; let i = index ">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ site.code }}</td>
+                    <td>{{ site.name}}</td>
+                    <td>
+                      <button class="btn btn-warning btn-sm me-2" (click)="openEditModal(site)">
+                        <i class="bi bi-pencil icon"></i> Modifier
+                      </button>
+                      <button class="btn btn-danger btn-sm" (click)="deleteSite(site._id!)">
+                        <i class="bi bi-trash icon"></i> Supprimer
+                      </button>
+                    </td>                  
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settingsModalLabel">Ajouter Site</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <input type="text" class="form-control" id="code" [(ngModel)]="code" name="code">
+          </div>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="nom" [(ngModel)]="name" name="nom">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveSite()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Modifier Site</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <input type="text"  class="form-control" id="code" [(ngModel)]="code" name="code">
+          </div>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Nom</label>
+            <input type="text"  class="form-control" id="nom" [(ngModel)]="name" name="nom">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateSite()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
